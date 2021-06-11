@@ -11,17 +11,26 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [12.x]
 
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install, build, and test
-        run: |
-          npm ci
-          npm run test:e2e
+          args: install
+
+      # - name: npm install, build, and test
+      #   run: npm ci
+
+      - name: Test Code
+        uses: mujo-code/puppeteer-headful@master
         env:
-          CI: true
+          CI: "true"
+        with:
+          args: npm test:e2e
+          env:
+            CI: true
