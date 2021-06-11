@@ -5,9 +5,13 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test:e2e": "node example.test.js",
+    "start": "node example.test.js"
   },
-  "keywords": [],
+  "keywords": [
+    "teste2e",
+    "tests-puppeteer"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {

@@ -1,4 +1,5 @@
 import puppeteer from "puppeteer";
+// tests e2e
 
 class Example {
   async start() {
@@ -11,7 +12,8 @@ class Example {
   }
 }
 
-(async () => {
+// Should be able get title "Example Domain"
+{
   const example = new Example();
   await example.start();
-})();
+}
