@@ -32,5 +32,3 @@ jobs:
           CI: "true"
         with:
           args: npm test:e2e
-          env:
-            CI: true
