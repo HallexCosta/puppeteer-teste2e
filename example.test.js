@@ -3,7 +3,11 @@ import puppeteer from "puppeteer";
 
 class Example {
   async start() {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+      args: ["--no-sandbox"],
+      executablePath: process.env.PUPPETEER_EXEC_PATH, // set by docker container
+      headless: false,
+    });
     const page = await browser.newPage();
     await page.goto("https://example.com");
     console.log(await page.title());
