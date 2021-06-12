@@ -1,6 +1,7 @@
+// tests e2e
 const { deepStrictEqual } = require('assert')
 const puppeteer = require('puppeteer')
-// tests e2e
+
 class Example {
   async start() {
     const browser = await puppeteer.launch({
@@ -29,9 +30,9 @@ class Example {
   }
 }
 
-// Should be able get title "Example Domain"
 const example = new Example()
 
+// Should be able get title "Example Domain"
 {
   ;(async () => {
     await example.start()
