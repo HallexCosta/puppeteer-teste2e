@@ -23,8 +23,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
           args: ci
 
-      # - name: npm install ci
-      #   run: npm ci
+      - name: npm install ci
+        run: npm ci
 
       - name: Test Code
         uses: mujo-code/puppeteer-headful@master
