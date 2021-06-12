@@ -1,55 +1,51 @@
 const { deepStrictEqual } = require('assert')
 const puppeteer = require('puppeteer')
 // tests e2e
-
 class Example {
-  constructor() {
-    this.title = ''
-    this.names = []
-  }
-
   async start() {
     const browser = await puppeteer.launch({
       args: ['--no-sandbox'],
       executablePath: process.env.PUPPETEER_EXEC_PATH, // set by docker container
-      headless: false
+      headless: true
     })
     const page = await browser.newPage()
 
-    const uri = `${this.getBaseURL()}/lista-de-animes`
+    const uri = `https://yayanimes.net/lista-de-animes`
 
     await page.goto(uri, {
       timeout: 0,
       waitUntil: 'networkidle2'
     })
 
+    this.title = await page.title()
+
     this.names = await page.evaluate(() => {
-      const anchors = [
-        ...(document.querySelectorAll < HTMLAnchorElement > '.aba ul > li > a')
-      ]
+      const anchors = [...document.querySelectorAll(' .aba ul > li > a')]
 
       return anchors.map(anchor => String(anchor.textContent))
     })
 
-    console.log()
-    this.title = await page.title()
     await browser.close()
   }
 }
 
-const example = (async () => {
-  const example = new Example()
-  await example.start()
-  return example
-})()
-
 // Should be able get title "Example Domain"
+const example = new Example()
+
 {
-  deepStrictEqual(example.title, 'Example Domain')
+  ;(async () => {
+    await example.start()
+
+    deepStrictEqual(example.title, 'Assistir Lista de Animes - Online em FHD')
+  })()
 }
 
 // Should be able get animes names
 {
-  deepStrictEqual(typeof example.names, 'array')
-  deepStrictEqual(example.names.length > 0, true)
+  ;(async () => {
+    await example.start()
+
+    deepStrictEqual(typeof example.names, 'object')
+    deepStrictEqual(example.names.length > 0, true)
+  })()
 }
