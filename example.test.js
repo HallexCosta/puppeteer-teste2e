@@ -1,7 +1,13 @@
+const { deepStrictEqual } = require('assert')
 const puppeteer = require('puppeteer')
 // tests e2e
 
 class Example {
+  constructor() {
+    this.title = ''
+    this.names = []
+  }
+
   async start() {
     const browser = await puppeteer.launch({
       args: ['--no-sandbox'],
@@ -9,9 +15,24 @@ class Example {
       headless: false
     })
     const page = await browser.newPage()
-    await page.goto('https://example.com')
-    console.log(await page.title())
 
+    const uri = `${this.getBaseURL()}/lista-de-animes`
+
+    await page.goto(uri, {
+      timeout: 0,
+      waitUntil: 'networkidle2'
+    })
+
+    this.names = await page.evaluate(() => {
+      const anchors = [
+        ...(document.querySelectorAll < HTMLAnchorElement > '.aba ul > li > a')
+      ]
+
+      return anchors.map(anchor => String(anchor.textContent))
+    })
+
+    console.log()
+    this.title = await page.title()
     await browser.close()
   }
 }
@@ -21,5 +42,14 @@ class Example {
   ;(async () => {
     const example = new Example()
     await example.start()
+  })()
+}
+//
+// Should be able get animes names
+{
+  ;(async () => {
+    const example = new Example()
+    await example.start()
+    deepStrictEqual(example.title, 'Example Domain')
   })()
 }
