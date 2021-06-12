@@ -21,9 +21,9 @@ jobs:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
         with:
           node-version: ${{ matrix.node-version }}
-          args: install
+          args: ci
 
-      # - name: npm install, build, and test
+      # - name: npm install ci
       #   run: npm ci
 
       - name: Test Code
