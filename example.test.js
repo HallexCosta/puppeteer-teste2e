@@ -37,19 +37,19 @@ class Example {
   }
 }
 
+const example = (async () => {
+  const example = new Example()
+  await example.start()
+  return example
+})()
+
 // Should be able get title "Example Domain"
 {
-  ;(async () => {
-    const example = new Example()
-    await example.start()
-  })()
+  deepStrictEqual(example.title, 'Example Domain')
 }
-//
+
 // Should be able get animes names
 {
-  ;(async () => {
-    const example = new Example()
-    await example.start()
-    deepStrictEqual(example.title, 'Example Domain')
-  })()
+  deepStrictEqual(typeof example.names, 'array')
+  deepStrictEqual(example.names.length > 0, true)
 }
