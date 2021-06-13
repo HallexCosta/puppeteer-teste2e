@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test:e2e": "npm run test:e2e:native && npm run test:e2e:mocha",
     "test:e2e:native": "node example.test.js",
     "test:e2e:mocha": "mocha example.mocha.js",
     "start": "node index.js"

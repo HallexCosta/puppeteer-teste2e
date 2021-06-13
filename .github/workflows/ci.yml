@@ -31,4 +31,4 @@ jobs:
         env:
           CI: 'true'
         with:
-          args: [npm run test:e2e:native, npm run test:e2e:mocha]
+          args: npm run test:e2e
