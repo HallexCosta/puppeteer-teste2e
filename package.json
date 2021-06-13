@@ -4,21 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:e2e": "node example.test.js",
-    "start": "node example.test.js"
+    "test:e2e:native": "node example.test.js",
+    "test:e2e:mocha": "mocha example.mocha.js",
+    "start": "node index.js"
   },
   "keywords": [
+    "test-e2e",
     "teste2e",
+    "puppeteer-e2e",
+    "puppeter-on-backend",
     "tests-puppeteer"
   ],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jest-puppeteer": "^5.0.4",
     "puppeteer": "^9.1.1"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.23",
-    "jest": "^27.0.4"
+    "@types/mocha": "^8.2.2",
+    "mocha": "^9.0.0"
   }
 }
