@@ -18,7 +18,7 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         env:
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
         with:
           node-version: ${{ matrix.node-version }}
           args: ci
@@ -29,6 +29,6 @@ jobs:
       - name: Test Code
         uses: mujo-code/puppeteer-headful@master
         env:
-          CI: "true"
+          CI: 'true'
         with:
-          args: npm run test:e2e
+          args: [npm run test:e2e:native, npm run test:e2e:mocha]
