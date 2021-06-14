@@ -23,12 +23,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
           args: ci
 
-      - name: npm install ci
-        run: npm ci
+      - name: Installing dependecies...
+        run: yarn ci
 
       - name: Test Code
         uses: mujo-code/puppeteer-headful@master
         env:
           CI: 'true'
         with:
-          args: npm run test:e2e
+          args: yarn test:e2e
