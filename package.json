@@ -7,7 +7,7 @@
     "test:e2e": "npm run test:e2e:native && npm run test:e2e:mocha",
     "test:e2e:native": "node __tests__/native/example.test.js",
     "test:e2e:mocha": "mocha __tests__/mocha/*.mocha.js",
-    "ci": "yarn install --fronzen-lockfile",
+    "install:ci": "yarn install --fronzen-lockfile",
     "start": "node index.js"
   },
   "keywords": [

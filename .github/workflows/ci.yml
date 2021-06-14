@@ -22,10 +22,10 @@ jobs:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
         with:
           node-version: ${{ matrix.node-version }}
-          args: ci
+          args: install:ci
 
       - name: Installing dependecies...
-        run: yarn ci
+        run: yarn install:ci
 
       - name: Test Code
         uses: mujo-code/puppeteer-headful@master
