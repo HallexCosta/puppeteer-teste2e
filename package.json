@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:e2e": "npm run test:e2e:native && npm run test:e2e:mocha",
+    "test:e2e": "npm run test:e2e:native && npm run test:e2e:mocha && test:e2e:jest",
     "test:e2e:native": "node __tests__/native/example.test.js",
     "test:e2e:mocha": "mocha __tests__/mocha/*.mocha.js",
+    "test:e2e:jest": "jest __tests__/jest/*.jest.js",
     "install:ci": "yarn install --fronzen-lockfile",
     "start": "node index.js"
   },
@@ -24,8 +25,10 @@
   },
   "devDependencies": {
     "@types/chai": "^4.2.18",
+    "@types/jest": "^26.0.23",
     "@types/mocha": "^8.2.2",
     "chai": "^4.3.4",
+    "jest": "^27.0.4",
     "mocha": "^9.0.0"
   }
 }
