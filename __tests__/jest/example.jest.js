@@ -28,7 +28,7 @@ class Example {
   }
 }
 
-describe('Mocha Puppeteer test', () => {
+describe('Jest Puppeteer test', () => {
   let example
 
   beforeAll(() => {
