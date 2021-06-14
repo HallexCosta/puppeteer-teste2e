@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:e2e": "npm run test:e2e:native && npm run test:e2e:mocha && test:e2e:jest",
+    "test:e2e": "npm run test:e2e:native && npm run test:e2e:mocha && yarn test:e2e:jest",
     "test:e2e:native": "node __tests__/native/example.test.js",
     "test:e2e:mocha": "mocha __tests__/mocha/*.mocha.js",
     "test:e2e:jest": "jest __tests__/jest/*.jest.js",
