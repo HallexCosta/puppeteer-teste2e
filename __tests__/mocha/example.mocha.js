@@ -6,7 +6,7 @@ class Example {
     const browser = await puppeteer.launch({
       args: ['--no-sandbox'],
       executablePath: process.env.PUPPETEER_EXEC_PATH, // set by docker container
-      headless: true
+      headless: false
     })
     const page = await browser.newPage()
 
