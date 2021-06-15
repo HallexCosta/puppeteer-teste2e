@@ -36,16 +36,18 @@ describe('Mocha Puppeteer test', () => {
     example = new Example()
   })
 
-  it('Should be able get title "Assistir Lista de Animes - Online em FHD"', () => {
-    example.start().then(() => {
-      expect(example.title).to.be('Assistir Lista de Animes - Online em FHD')
-    })
+  it('Should be able get title "Assistir Lista de Animes - Online em FHD"', async () => {
+    await example.start()
+
+    expect(example.title).to.be.equal(
+      'Assistir Lista de Animes - Online em FHD'
+    )
   })
 
   it('Should be able get animes names', async () => {
-    example.start().then(() => {
-      expect(typeof example.names).to.be.equal('object')
-      expect(example.names.length > 0).to.be.equal(true)
-    })
+    await example.start()
+
+    expect(typeof example.names).to.be.equal('object')
+    expect(example.names.length > 0).to.be.equal(true)
   })
 })
