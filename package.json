@@ -6,6 +6,7 @@
   "scripts": {
     "test:e2e": "yarn test:e2e:native",
     "test:e2e:native": "node __tests__/native/example.test.js",
+    "test:e2e:native:ts": "ts-node __tests__/native/example.test.ts",
     "test:e2e:mocha": "mocha --timeout 0 __tests__/mocha/*.mocha.js",
     "test:e2e:mocha:ts": "mocha -r ts-node/register --timeout 0 __tests__/mocha/*.mocha.ts",
     "test:e2e:jest": "jest __tests__/jest/*.jest.js",
