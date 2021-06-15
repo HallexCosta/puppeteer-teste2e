@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": ["DOM", "DOM.Iterable", "ES6", "es2017"],
+    "outDir": "dist/server",
+    "rootDirs": ["./src", "./__tests__"],
+    "removeComments": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictPropertyInitialization": false,
+    "baseUrl": "."
+  },
+  "include": ["src/**/*", "__tests__/**/*"],
+  "exclude": ["node_modules/**/*"]
+}
+
