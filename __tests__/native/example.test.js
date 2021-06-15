@@ -53,7 +53,7 @@ const example = new Example()
   example
     .start()
     .then(() => {
-      deepStrictEqual(typeof example.names, 'object')
+      deepStrictEqual(typeof example.names, 'aaaobject')
       deepStrictEqual(example.names.length > 0, true)
     })
     .catch(e => console.log(e))
