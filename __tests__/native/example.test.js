@@ -35,9 +35,12 @@ const example = new Example()
 
 // Should be able get title "Example Domain"
 {
-  example.start().then(() => {
-    deepStrictEqual(example.title, 'Assistir Lista de Animes - Online em FHD')
-  })
+  example
+    .start()
+    .then(() => {
+      deepStrictEqual(example.title, 'Assistir Lista de Animes - Online em FHD')
+    })
+    .catch(e => console.log(e))
   // ;(async () => {
   //   await example.start()
   //
@@ -47,10 +50,13 @@ const example = new Example()
 
 // Should be able get animes names
 {
-  example.start().then(() => {
-    deepStrictEqual(typeof example.names, 'object')
-    deepStrictEqual(example.names.length > 0, true)
-  })
+  example
+    .start()
+    .then(() => {
+      deepStrictEqual(typeof example.names, 'object')
+      deepStrictEqual(example.names.length > 0, true)
+    })
+    .catch(e => console.log(e))
   // ;(async () => {
   //   await example.start()
   //
