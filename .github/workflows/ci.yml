@@ -26,11 +26,18 @@ jobs:
           args: install:ci
 
       - name: Installing dependecies...
-        run: yarn install:ci
+        uses: ianwalter/puppeteer-container@acc52cd2334ad9eaf6e1974562d263e0a711b7e8
+        with:
+          args: yarn install:ci
 
-      - name: Test Code
-        uses: mujo-code/puppeteer-headful@master
-        env:
-          CI: 'true'
+      - name: Testing...
+        uses: ianwalter/puppeteer-container@acc52cd2334ad9eaf6e1974562d263e0a711b7e8
         with:
           args: yarn test:e2e
+
+      # - name: Test Code
+      #   uses: mujo-code/puppeteer-headful@master
+      #   env:
+      #     CI: 'true'
+      #   with:
+      #     args: yarn test:e2e
