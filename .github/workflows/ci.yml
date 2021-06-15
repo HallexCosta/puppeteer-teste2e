@@ -20,7 +20,7 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         env:
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'false'
         with:
           node-version: ${{ matrix.node-version }}
           args: install:ci
@@ -29,8 +29,11 @@ jobs:
         run: yarn install:ci
 
       - name: Test Code
-        uses: mujo-code/puppeteer-headful@master
-        env:
-          CI: 'true'
-        with:
-          args: yarn test:e2e
+        run: yarn test:e2e
+
+      # - name: Test Code
+      #   uses: mujo-code/puppeteer-headful@master
+      #   env:
+      #     CI: 'true'
+      #   with:
+      #     args: yarn test:e2e
