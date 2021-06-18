@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:e2e": "yarn test:e2e:native && yarn test:e2e:mocha",
+    "test:e2e": "yarn test:e2e:mocha",
     "test:e2e:worked": "yarn test:e2e:native && yarn test:e2e:native:ts",
     "test:e2e:native": "node __tests__/native/example.test.js",
     "test:e2e:native:ts": "ts-node __tests__/native/example.test.ts",
