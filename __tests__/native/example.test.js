@@ -38,7 +38,10 @@ const example = new Example()
   example
     .start()
     .then(() => {
-      deepStrictEqual(example.title, 'Assistir Lista de Animes - Online em FHD')
+      deepStrictEqual(
+        example.title,
+        'aaAssistir Lista de Animes - Online em FHD'
+      )
     })
     .catch(e => console.log(e))
   // ;(async () => {
