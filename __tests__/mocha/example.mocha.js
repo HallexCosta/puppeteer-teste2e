@@ -7,7 +7,8 @@ class Example {
     puppeteer.use(StealthPlugin())
     const browser = await puppeteer.launch({
       executablePath: process.env.PUPPETEER_EXEC_PATH, // set by docker container
-      headless: true
+      headless: true,
+      args: ['--no-sandbox']
     })
     const page = await browser.newPage()
 
