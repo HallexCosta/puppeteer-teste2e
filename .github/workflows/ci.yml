@@ -26,9 +26,7 @@ jobs:
           args: install:ci
 
       - name: Installing dependecies...
-        uses: ianwalter/puppeteer-container@v4.0.0
-        with:
-          args: yarn install:ci
+        run: yarn install:ci
 
       - name: Test Code
         uses: mujo-code/puppeteer-headful@master
