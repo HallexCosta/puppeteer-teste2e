@@ -30,14 +30,9 @@ jobs:
         with:
           args: yarn install:ci
 
-      - name: Testing...
-        uses: ianwalter/puppeteer-container@v4.0.0
+      - name: Test Code
+        uses: mujo-code/puppeteer-headful@master
+        env:
+          CI: 'true'
         with:
           args: yarn test:e2e
-
-      # - name: Test Code
-      #   uses: mujo-code/puppeteer-headful@master
-      #   env:
-      #     CI: 'true'
-      #   with:
-      #     args: yarn test:e2e
