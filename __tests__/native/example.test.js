@@ -1,14 +1,14 @@
 // tests e2e
 const { deepStrictEqual } = require('assert')
-const puppeteer = require('puppeteer')
+const puppeteer = require('puppeteer-extra')
+const StealthPlugin = require('puppeteer-extra-plugin-stealth')
 
 class Example {
   async start() {
+    puppeteer.use(StealthPlugin())
     const browser = await puppeteer.launch({
-      args: ['--no-sandbox'],
       executablePath: process.env.PUPPETEER_EXEC,
       headless: true
-      // ignoreHTTPSErrors: true
     })
     const page = await browser.newPage()
 

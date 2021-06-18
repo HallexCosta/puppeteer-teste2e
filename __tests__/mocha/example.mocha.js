@@ -1,21 +1,13 @@
 const { expect, use } = require('chai')
-const puppeteer = require('puppeteer')
+const puppeteer = require('puppeteer-extra')
+const StealthPlugin = require('puppeteer-extra-plugin-stealth')
 
 class Example {
   async start() {
+    puppeteer.use(StealthPlugin())
     const browser = await puppeteer.launch({
-      args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-infobars',
-        '--window-position=0,0',
-        '--ignore-certifcate-errors',
-        '--ignore-certifcate-errors-spki-list',
-        '--user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3312.0 Safari/537.36"'
-      ],
       executablePath: process.env.PUPPETEER_EXEC_PATH, // set by docker container
-      headless: true,
-      ignoreHTTPSErrors: true
+      headless: true
     })
     const page = await browser.newPage()
 
